@@ -31,7 +31,7 @@ class ScheduleExample extends State<WeekNumberState> {
   @override
   void initState() {
     // TODO: implement initState
-    headerString = '';
+    headerString = DateFormat('dd - MMMM - yyyy').format(DateTime.now());
     super.initState();
   }
 
@@ -45,11 +45,21 @@ class ScheduleExample extends State<WeekNumberState> {
               child: SfDateRangePicker(
                 monthViewSettings: const DateRangePickerMonthViewSettings(
                     dayFormat: 'EEE',
-                    showTrailingAndLeadingDates: true, numberOfWeeksInView: 1),
+                    showTrailingAndLeadingDates: true,
+                    numberOfWeeksInView: 1),
+                monthCellStyle: DateRangePickerMonthCellStyle(
+                ),
                 onSelectionChanged: selectionChanged,
                 selectionShape: DateRangePickerSelectionShape.rectangle,
                 enablePastDates: false,
                 selectionRadius: 5,
+                allowViewNavigation: false,
+                todayHighlightColor: Colors.transparent,
+                selectionColor: Colors.transparent,
+                selectionTextStyle:TextStyle(
+                  color: Colors.indigoAccent,
+                  decoration: TextDecoration.underline,
+                ),
               ),
             ),
             height: 140,
