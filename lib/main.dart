@@ -46,20 +46,35 @@ class ScheduleExample extends State<WeekNumberState> {
                 monthViewSettings: const DateRangePickerMonthViewSettings(
                     dayFormat: 'EEE',
                     showTrailingAndLeadingDates: true,
+
                     numberOfWeeksInView: 1),
-                monthCellStyle: DateRangePickerMonthCellStyle(
-                ),
+                monthCellStyle: const DateRangePickerMonthCellStyle(
+                    todayTextStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    todayCellDecoration: BoxDecoration(
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                    ),
+                    textStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    disabledDatesTextStyle: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700,
+                    )),
                 onSelectionChanged: selectionChanged,
                 selectionShape: DateRangePickerSelectionShape.rectangle,
                 enablePastDates: false,
                 selectionRadius: 5,
                 allowViewNavigation: false,
                 todayHighlightColor: Colors.transparent,
-                selectionColor: Colors.transparent,
-                selectionTextStyle:TextStyle(
-                  color: Colors.indigoAccent,
-                  decoration: TextDecoration.underline,
-                ),
+
               ),
             ),
             height: 140,
