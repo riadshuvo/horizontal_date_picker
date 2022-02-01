@@ -40,45 +40,62 @@ class ScheduleExample extends State<WeekNumberState> {
     return (Scaffold(
       body: Column(
         children: <Widget>[
-          SizedBox(
-            child: SafeArea(
+          SafeArea(
+            child: Container(
+              height: 130,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                border: Border(
+                  bottom: BorderSide(width: 1.0, color: Colors.grey.shade300),
+                ),
+              ),
               child: SfDateRangePicker(
                 monthViewSettings: const DateRangePickerMonthViewSettings(
                     dayFormat: 'EEE',
+                    firstDayOfWeek: 1,
                     showTrailingAndLeadingDates: true,
-
+                    viewHeaderStyle: DateRangePickerViewHeaderStyle(textStyle: TextStyle(
+                      color: Color(0xff5E5E5E),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                    )),
                     numberOfWeeksInView: 1),
                 monthCellStyle: const DateRangePickerMonthCellStyle(
-                    todayTextStyle: TextStyle(
-                      color: Colors.white,
+                    todayTextStyle:  TextStyle(
+                      color: Color(0xff5E5E5E),
                       fontSize: 17,
                       fontWeight: FontWeight.w700,
                     ),
-                    todayCellDecoration: BoxDecoration(
-                      color: Colors.amber,
-                      shape: BoxShape.circle,
+                    todayCellDecoration:  BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.rectangle,
+                      border: Border(
+                        bottom: BorderSide(
+                          width: 3.0, color: Color(0xff3161F1),),
+                      ),
                     ),
-                    textStyle: TextStyle(
-                      color: Colors.white,
+                    textStyle:  TextStyle(
+                      color: Color(0xff5E5E5E),
                       fontSize: 17,
                       fontWeight: FontWeight.w700,
                     ),
                     disabledDatesTextStyle: TextStyle(
-                      color: Colors.grey,
+                      color: Color(0xffC3C9D7),
                       fontSize: 17,
                       fontWeight: FontWeight.w700,
                     )),
                 onSelectionChanged: selectionChanged,
-                selectionShape: DateRangePickerSelectionShape.rectangle,
                 enablePastDates: false,
-                selectionRadius: 5,
                 allowViewNavigation: false,
-                todayHighlightColor: Colors.transparent,
-
+                selectionColor: Colors.transparent,
+                selectionMode: DateRangePickerSelectionMode.single,
+                selectionTextStyle: const TextStyle(
+                  color: Color(0xff3161F1),
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
-            height: 140,
-            width: double.maxFinite,
           ),
           Expanded(
             child: Column(
